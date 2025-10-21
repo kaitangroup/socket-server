@@ -52,6 +52,19 @@ io.on("connection", (socket) => {
     ? socket.handshake.auth.name
     : "Guest";
 
+      // --- Chat relay ---
+  socket.on("chat", ({ room, text }: { room: string; text: string }) => {
+    if (typeof room !== "string" || !room.trim()) return;
+    const msg = String(text ?? "").trim();
+    if (!msg) return;
+    io.to(room).emit("chat", {
+      name: displayName,
+      from: socket.id,
+      text: msg,
+    });
+  });
+
+
   socket.on("join", ({ room }: { room: string }) => {
     if (typeof room !== "string" || !room.trim()) return;
     socket.join(room);
