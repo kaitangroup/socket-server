@@ -15,7 +15,10 @@ if (ALLOWED_ORIGINS.length === 0) {
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://192.168.0.197:3000",
-    "https://192.168.0.197:3000"
+    "https://author-eta.vercel.app",
+    "https://mooru.net",
+    "https://192.168.0.210:3000",
+    "http://192.168.0.210:3000"
   );
 }
 
